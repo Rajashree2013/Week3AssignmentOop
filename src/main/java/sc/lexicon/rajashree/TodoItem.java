@@ -1,6 +1,7 @@
 package sc.lexicon.rajashree;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public class TodoItem {
@@ -79,12 +80,7 @@ public class TodoItem {
     }
 
 
-    public String getSummary() {
-        return "TodoItem{" +
-                "id=" + id +
-                ", deadLine=" + deadLine +
-                '}';
-    }
+
 
     public boolean isOverdue(LocalDate deadLine) {
         boolean bol = false;
@@ -94,6 +90,29 @@ public class TodoItem {
         }
         return bol;
     }
+//toString() all fields except Person object(s)
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                ", id=" + id +
+                '}';
+    }
+//)
+//• equals() & hashCode() all fields except Person objects
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;       //
+        if (!(o instanceof TodoItem)) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return done == todoItem.done && id == todoItem.id && title.equals(todoItem.title) && taskDescription.equals(todoItem.taskDescription) && deadLine.equals(todoItem.deadLine);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, taskDescription, deadLine, done, id);
+    }
 }

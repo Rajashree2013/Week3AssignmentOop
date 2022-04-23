@@ -1,11 +1,15 @@
 package sc.lexicon.rajashree;
 
+import java.util.Objects;
+
 public class Person {
 
     private int id;
     private String firstName;
     private String lastName;
     private String email;
+    private AppUser credential;//Add an AppUser object to the fields called credentials
+
 
 
     public Person(int id, String firstName, String lastName, String email) {
@@ -58,9 +62,18 @@ public class Person {
             this.email = email;
         }
     }
+//Create getter and setter for AppUser
+    public AppUser getCredential() {
+        return credential;
+    }
+
+    public void setCredential(AppUser credential) {
+        this.credential = credential;
+    }
 
 
-    public String getSummary() {
+    public String getSummary() {   //Replace getSummary() with toString() method that don’t print out credentials.
+
         return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
@@ -69,7 +82,16 @@ public class Person {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;     //Override equals and hashcode from Object. Exclude credentials from both.
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return id == person.id && firstName.equals(person.firstName) && lastName.equals(person.lastName) && email.equals(person.email);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email);
+    }
 }
