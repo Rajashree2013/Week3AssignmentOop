@@ -11,15 +11,20 @@ public class Person {
     private AppUser credential;//Add an AppUser object to the fields called credentials
 
 
-
     public Person(int id, String firstName, String lastName, String email) {
 
-        if((firstName != null && lastName != null && email != null) && (id>0)){
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-        }
+        this.id = id;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+    }
+
+    public Person(int id, String firstName, String lastName, String email, AppUser credential) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.credential = credential;
     }
 
     public int getId() {
@@ -27,7 +32,7 @@ public class Person {
     }
 
     public void setId(int id) {
-        if(id >0){
+        if (id > 0) {
             this.id = id;
         }
 
@@ -38,9 +43,11 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if(firstName != null){
-            this.firstName = firstName;
+        if (firstName == null) {
+            throw new IllegalArgumentException("fn was null");
         }
+        this.firstName = firstName;
+
     }
 
     public String getLastName() {
@@ -48,26 +55,36 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
-        if(lastName != null){
+
+        if (lastName == null) {
+            throw new IllegalArgumentException("last name was null");
+        }
             this.lastName = lastName;
         }
-    }
+
 
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-        if(email != null){
-            this.email = email;
+        if (email == null) {
+            throw new IllegalArgumentException("email  was null");
         }
-    }
-//Create getter and setter for AppUser
+        this.email = email;
+        }
+
+
+    //Create getter and setter for AppUser
     public AppUser getCredential() {
         return credential;
     }
 
     public void setCredential(AppUser credential) {
+
+        if(credential==null){
+            throw new IllegalArgumentException("credential was null");
+        }
         this.credential = credential;
     }
 

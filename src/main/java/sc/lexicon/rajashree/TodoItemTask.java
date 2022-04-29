@@ -7,11 +7,10 @@ public class TodoItemTask {
     private TodoItem todoItem;
     private Person assignee;
 
-    public TodoItemTask(int id, boolean assigned, TodoItem todoItem, Person assignee) {
+    public TodoItemTask(int id, TodoItem todoItem, Person assignee) {
         this.id = id;
-        this.assigned = assigned;
-        this.todoItem = todoItem;
-        this.assignee = assignee;
+        setAssignee(assignee);
+        setTodoItem(todoItem);
     }
 
 
@@ -28,9 +27,10 @@ public class TodoItemTask {
     }
 
     public void setAssigned(boolean assigned) {
-        if(assigned == true){
-            this.assigned = assigned;
+        if (assigned == true) {
+            throw new IllegalArgumentException("assigned was null");
         }
+        this.assigned = assigned;
     }
 
     public TodoItem getTodoItem() {
@@ -38,8 +38,8 @@ public class TodoItemTask {
     }
 
     public void setTodoItem(TodoItem todoItem) {
-        if(todoItem != null) {
-            this.todoItem = todoItem;
+        if (todoItem== null) {
+            throw new IllegalArgumentException("Todoitem was null");
         }
     }
 
@@ -49,12 +49,14 @@ public class TodoItemTask {
 
     public void setAssignee(Person assignee) {
         this.assignee = assignee;
+        setAssigned(assignee != null);
+        // if the person is not null it means that you assigned a task to a perosn then you should change the assigneed to true
     }
 
 
     public String getSummary() {
         return "TodoItemTask{" +
-                "assigned=" + assigned +
+                "assigned=" + "" +
                 '}';
     }
 }

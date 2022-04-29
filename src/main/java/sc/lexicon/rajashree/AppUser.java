@@ -93,32 +93,9 @@ public class AppUser {
 
 
 /*
-ppUser:
-Fields:
-• username (private) is a String that acts
-as the id of AppUser. Not allowed to be
-null. Not allowed to be null or empty.
-• password (private) is a String that
-contains a password. Not allowed to be
-null or empty.
-• role (private) contains an enumerated
-type marking the AppUser object as
-being a ROLE_APP_USER or
-ROLE_APP_ADMIN. Not allowed to be
-null.
 
-Constructor:
-Up to you
 
-Methods:
-• Common getters and setters.
-• toString() method overridden from
-Object. Don’t include password.
-• hashCode() method overridden from
-Object. Don’t include password.
-• equals() method overridden from
-Object. Don’t include password
-AppRole:
+
 • Have two possible values
 • ROLE_APP_USER
 • ROLE_APP_ADMIN
