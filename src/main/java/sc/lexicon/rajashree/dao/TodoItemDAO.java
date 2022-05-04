@@ -1,4 +1,6 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.dao;
+
+import sc.lexicon.rajashree.model.TodoItem;
 
 import java.time.LocalDate;
 import java.util.List;

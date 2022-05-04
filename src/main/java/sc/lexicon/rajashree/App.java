@@ -1,5 +1,7 @@
 package sc.lexicon.rajashree;
 
+import sc.lexicon.rajashree.model.*;
+
 import java.time.LocalDate;
 
 public class App {
@@ -9,8 +11,8 @@ public class App {
     public static void main(String[] args) {
         // todo: run the app
 
-        AppUser appUser1 = new AppUser("Rajashree","1234",Approle.ROLE_APP_USER);
-        AppUser appUser2 = new AppUser("Dillip","1234",Approle.ROLE_APP_ADMIN);
+        AppUser appUser1 = new AppUser("Rajashree","1234", AppRole.ROLE_APP_USER);
+        AppUser appUser2 = new AppUser("Dillip","1234",AppRole.ROLE_APP_ADMIN);
 
         // instantiate two persons
         Person rajashree = new Person(1, "rajashre", "Bhuyan","raj.gmail",appUser1);
@@ -31,11 +33,6 @@ public class App {
         }else{
             System.out.println("Tas is invalid!");
         }
-
-
-
-
-
 
 
 

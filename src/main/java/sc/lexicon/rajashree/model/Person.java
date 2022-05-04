@@ -1,4 +1,4 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.model;
 
 import java.util.Objects;
 
@@ -13,18 +13,18 @@ public class Person {
 
     public Person(int id, String firstName, String lastName, String email) {
 
-        this.id = id;
+        setId(id);
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
     }
 
     public Person(int id, String firstName, String lastName, String email, AppUser credential) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.credential = credential;
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setCredential(credential);
     }
 
     public int getId() {
@@ -32,10 +32,13 @@ public class Person {
     }
 
     public void setId(int id) {
+        // todo: fix it
+        if(id == 0){
+            throw new IllegalArgumentException("id was zero");
+        }
         if (id > 0) {
             this.id = id;
         }
-
     }
 
     public String getFirstName() {
@@ -59,8 +62,8 @@ public class Person {
         if (lastName == null) {
             throw new IllegalArgumentException("last name was null");
         }
-            this.lastName = lastName;
-        }
+        this.lastName = lastName;
+    }
 
 
     public String getEmail() {
@@ -72,7 +75,7 @@ public class Person {
             throw new IllegalArgumentException("email  was null");
         }
         this.email = email;
-        }
+    }
 
 
     //Create getter and setter for AppUser
@@ -82,7 +85,7 @@ public class Person {
 
     public void setCredential(AppUser credential) {
 
-        if(credential==null){
+        if (credential == null) {
             throw new IllegalArgumentException("credential was null");
         }
         this.credential = credential;
@@ -111,4 +114,7 @@ public class Person {
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, email);
     }
+
+    // reformate codes
+    // ctrl + alt + L
 }

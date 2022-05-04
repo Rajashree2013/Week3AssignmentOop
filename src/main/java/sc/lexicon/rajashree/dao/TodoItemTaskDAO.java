@@ -1,4 +1,7 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.dao;
+
+import sc.lexicon.rajashree.model.TodoItem;
+import sc.lexicon.rajashree.model.TodoItemTask;
 
 import java.util.List;
 

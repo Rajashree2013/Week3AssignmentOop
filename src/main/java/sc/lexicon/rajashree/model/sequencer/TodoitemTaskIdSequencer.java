@@ -1,4 +1,4 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.model.sequencer;
 
 public class TodoitemTaskIdSequencer {
 

@@ -1,4 +1,4 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class TodoItem {
     private int id;
-    // todo: fix the access modifier for all fields
     private String title;
     private String taskDescription;
     private LocalDate deadLine;
@@ -15,12 +14,13 @@ public class TodoItem {
 
 
     public TodoItem(int id, String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) {
-        this.id = id;
-        this.title = title;
-        this.taskDescription = taskDescription;
-        this.deadLine = deadLine;
-        this.done = done;
-        this.creator = creator;
+
+        setId(id);
+        setTitle(title);
+        setTaskDescription(taskDescription);
+        setDeadLine (deadLine);
+        setDone(done);
+        setCreator(creator);
     }
 
     public int getId() {
@@ -29,7 +29,12 @@ public class TodoItem {
 
     public void setId(int id) {
 
-        this.id = id;
+        if(id == 0){
+            throw new IllegalArgumentException("id was zero");
+        }
+        if (id > 0) {
+            this.id = id;
+        }
     }
 
     public String getTitle() {
@@ -37,8 +42,8 @@ public class TodoItem {
     }
 
     public void setTitle(String title) {
-        if (title != null) {
-
+        if (title == null) {
+            throw new IllegalArgumentException("title was null");
         }
         this.title = title;
     }
@@ -48,6 +53,9 @@ public class TodoItem {
     }
 
     public void setTaskDescription(String taskDescription) {
+        if (taskDescription == null) {
+            throw new IllegalArgumentException("taskDescription was null");
+        }
         this.taskDescription = taskDescription;
     }
 
@@ -56,8 +64,9 @@ public class TodoItem {
     }
 
     public void setDeadLine(LocalDate deadLine) {
-        // todo fix it with checking same as other fields
-
+        if (deadLine == null) {
+            throw new IllegalArgumentException("deadLine was null");
+        }
         LocalDate date = LocalDate.now();
         if (deadLine != null) {
             if (date.isBefore(deadLine)) {
@@ -71,6 +80,9 @@ public class TodoItem {
     }
 
     public void setDone(boolean done) {
+        if (done == false) {
+            throw new IllegalArgumentException("done was false");
+        }
         this.done = done;
     }
 
@@ -79,10 +91,12 @@ public class TodoItem {
     }
 
     public void setCreator(Person creator) {
+
+        if (creator == null) {
+            throw new IllegalArgumentException("creator was false");
+        }
         this.creator = creator;
     }
-
-
 
 
     public boolean isOverdue(LocalDate deadLine) {
@@ -93,18 +107,9 @@ public class TodoItem {
         }
         return bol;
     }
-//toString() all fields except Person object(s)
-    @Override
-    public String toString() {
-        return "TodoItem{" +
-                "title='" + title + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
-                ", deadLine=" + deadLine +
-                ", done=" + done +
-                ", id=" + id +
-                '}';
-    }
-//)
+
+
+    //)
 //• equals() & hashCode() all fields except Person objects
     @Override
     public boolean equals(Object o) {
@@ -118,4 +123,18 @@ public class TodoItem {
     public int hashCode() {
         return Objects.hash(title, taskDescription, deadLine, done, id);
     }
+
+
+    //toString() all fields except Person object(s)
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                ", id=" + id +
+                '}';
+    }
+
 }

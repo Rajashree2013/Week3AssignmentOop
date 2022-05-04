@@ -1,4 +1,4 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.model;
 
 public class TodoItemTask {
 
@@ -8,7 +8,7 @@ public class TodoItemTask {
     private Person assignee;
 
     public TodoItemTask(int id, TodoItem todoItem, Person assignee) {
-        this.id = id;
+        setId(id);
         setAssignee(assignee);
         setTodoItem(todoItem);
     }
@@ -19,9 +19,13 @@ public class TodoItemTask {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id == 0) {
+            throw new IllegalArgumentException("id was zero");
+        }
+        if (id > 0) {
+            this.id = id;
+        }
     }
-
     public boolean isAssigned() {
         return assigned;
     }

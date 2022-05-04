@@ -1,7 +1,6 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.model.sequencer;
 
-public class TodoitemIdSequencer {
-
+public class PersonIdSequencer {
     static    int currentId;
 
     public static int nextId() {
@@ -11,6 +10,6 @@ public class TodoitemIdSequencer {
         return currentId;
     }
     public static void setCurrentId(int currentId) {
-        TodoitemIdSequencer.currentId = currentId;
+        PersonIdSequencer.currentId = currentId;
     }
 }
