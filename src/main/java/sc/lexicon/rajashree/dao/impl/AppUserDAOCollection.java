@@ -1,4 +1,7 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.dao.impl;
+
+import sc.lexicon.rajashree.dao.AppUserDAO;
+import sc.lexicon.rajashree.model.AppUser;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,12 @@
-package sc.lexicon.rajashree;
+package sc.lexicon.rajashree.dao.impl;
+
+import sc.lexicon.rajashree.dao.PersonDAO;
+import sc.lexicon.rajashree.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonDAOCollection implements PersonDAO{
+public class PersonDAOCollection implements PersonDAO {
 
     private List<Person> personList = new ArrayList<>();
 
