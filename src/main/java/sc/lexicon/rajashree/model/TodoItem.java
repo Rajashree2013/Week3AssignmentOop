@@ -32,9 +32,8 @@ public class TodoItem {
         if(id == 0){
             throw new IllegalArgumentException("id was zero");
         }
-        if (id > 0) {
-            this.id = id;
-        }
+         this.id = id;
+
     }
 
     public String getTitle() {
@@ -53,9 +52,7 @@ public class TodoItem {
     }
 
     public void setTaskDescription(String taskDescription) {
-        if (taskDescription == null) {
-            throw new IllegalArgumentException("taskDescription was null");
-        }
+
         this.taskDescription = taskDescription;
     }
 
@@ -92,9 +89,6 @@ public class TodoItem {
 
     public void setCreator(Person creator) {
 
-        if (creator == null) {
-            throw new IllegalArgumentException("creator was false");
-        }
         this.creator = creator;
     }
 

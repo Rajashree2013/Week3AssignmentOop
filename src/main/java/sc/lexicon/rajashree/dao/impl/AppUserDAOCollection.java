@@ -32,7 +32,7 @@ public class AppUserDAOCollection implements AppUserDAO {
     }
 
     @Override
-    public List findAll() {
+    public List<AppUser> findAll() {
         return appUserList;
     }
 

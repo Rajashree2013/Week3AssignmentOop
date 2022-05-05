@@ -9,11 +9,11 @@ public interface TodoItemDAO {
 
     TodoItem persist(TodoItem todoItem);
     TodoItem findById(String Id);
-    List findAll();
-    List findAllByDoneStatus(boolean done);
-    List findByTitleContains(String title);
-    List findByPersonId(String personId);
-    List findByDeadlineBefore(LocalDate date);
-    List findByDeadlineAfter(LocalDate date);
+    List<TodoItem> findAll();
+    List<TodoItem> findAllByDoneStatus(boolean done);
+    List<TodoItem> findByTitleContains(String title);
+    List<TodoItem> findByPersonId(String personId);
+    List<TodoItem> findByDeadlineBefore(LocalDate date);
+    List<TodoItem> findByDeadlineAfter(LocalDate date);
     boolean remove(String id);
 }

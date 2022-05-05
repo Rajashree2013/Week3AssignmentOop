@@ -8,8 +8,8 @@ import java.util.List;
 public interface TodoItemTaskDAO {
     TodoItemTask persist(TodoItemTask todoItemTask);
     TodoItem findById(String Id);
-    List findAll();
-    List findByAssignedStatus(String status);
-    List findByPersonId(String personId);
+    List<TodoItemTask> findAll();
+    List<TodoItemTask> findByAssignedStatus(String status);
+    List<TodoItemTask> findByPersonId(String personId);
     void remove(String id);
 }

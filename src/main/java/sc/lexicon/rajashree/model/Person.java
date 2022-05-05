@@ -20,10 +20,7 @@ public class Person {
     }
 
     public Person(int id, String firstName, String lastName, String email, AppUser credential) {
-        setId(id);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
+        this(id,firstName,lastName,email); // chain constructor
         setCredential(credential);
     }
 
@@ -36,9 +33,9 @@ public class Person {
         if(id == 0){
             throw new IllegalArgumentException("id was zero");
         }
-        if (id > 0) {
-            this.id = id;
-        }
+
+        this.id = id;
+
     }
 
     public String getFirstName() {
@@ -92,16 +89,6 @@ public class Person {
     }
 
 
-    public String getSummary() {   //Replace getSummary() with toString() method that don’t print out credentials.
-
-        return "Person{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;     //Override equals and hashcode from Object. Exclude credentials from both.
@@ -115,6 +102,16 @@ public class Person {
         return Objects.hash(id, firstName, lastName, email);
     }
 
-    // reformate codes
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", credential=" + credential +
+                '}';
+    }
+// reformate codes
     // ctrl + alt + L
 }

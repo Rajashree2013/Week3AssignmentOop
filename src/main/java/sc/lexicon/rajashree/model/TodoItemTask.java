@@ -22,10 +22,9 @@ public class TodoItemTask {
         if (id == 0) {
             throw new IllegalArgumentException("id was zero");
         }
-        if (id > 0) {
-            this.id = id;
-        }
+        this.id = id;
     }
+
     public boolean isAssigned() {
         return assigned;
     }
@@ -42,7 +41,7 @@ public class TodoItemTask {
     }
 
     public void setTodoItem(TodoItem todoItem) {
-        if (todoItem== null) {
+        if (todoItem == null) {
             throw new IllegalArgumentException("Todoitem was null");
         }
     }

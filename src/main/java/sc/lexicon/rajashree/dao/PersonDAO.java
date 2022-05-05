@@ -8,6 +8,6 @@ public interface PersonDAO {
     Person persist(Person person);
     Person findById(String Id);
     Person findByEmail(String emailId);
-    List findAll();
+    List<Person> findAll();
     boolean remove(String id);
 }
